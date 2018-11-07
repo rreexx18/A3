@@ -46,7 +46,7 @@ function create_task( $user_id ){
     $config =(array) json_decode(file_get_contents('../connection/configDB.json'));
     if( is_array($config) && !empty($config) ){
         $link = conect_to_db($config);
-        $sql = "INSERT INTO tables (name, description, status, date_start, id_user) VALUES (?, ?, 'pendiente', now(),". $user_id .")";
+        $sql = "INSERT INTO tasks (name, description, status, date_start, id_user) VALUES (?, ?, 'pendiente', now(),". $user_id .")";
         $stmt = mysqli_prepare($link, $sql);
         mysqli_stmt_bind_param( $stmt, 'ss', $_POST['task-name'], $_POST['task-description'] );
         mysqli_execute($stmt);
@@ -66,7 +66,7 @@ function complete_task( $task_id ){
     $config =(array) json_decode(file_get_contents('../connection/configDB.json'));
     if( is_array($config) && !empty($config) ){
         $link = conect_to_db($config);
-        $sql = "UPDATE tables SET status='completada',date_finish=now() WHERE id_table=".$task_id ." AND status<>'completada'";
+        $sql = "UPDATE tasks SET status='completada',date_finish=now() WHERE id_task=".$task_id ." AND status<>'completada'";
         $stmt = mysqli_prepare($link, $sql);
         mysqli_execute($stmt);
         $result_rows = mysqli_stmt_affected_rows($stmt);
@@ -85,7 +85,7 @@ function delete_task( $task_id ){
     $config =(array) json_decode(file_get_contents('../connection/configDB.json'));
     if( is_array($config) && !empty($config) ){
         $link = conect_to_db($config);
-        $sql = "DELETE FROM tables WHERE id_table=".$task_id;
+        $sql = "DELETE FROM tasks WHERE id_task=".$task_id;
         $stmt = mysqli_prepare($link, $sql);
         mysqli_execute($stmt);
         $result_rows = mysqli_stmt_affected_rows($stmt);
@@ -104,7 +104,7 @@ function delete_tasks_completed(){
     $config =(array) json_decode(file_get_contents('../connection/configDB.json'));
     if( is_array($config) && !empty($config) ){
         $link = conect_to_db($config);
-        $sql = "DELETE FROM tables WHERE status='completada'";
+        $sql = "DELETE FROM tasks WHERE status='completada'";
         $stmt = mysqli_prepare($link, $sql);
         mysqli_execute($stmt);
         $result_rows = mysqli_stmt_affected_rows($stmt);
@@ -124,7 +124,7 @@ function show_tasks_home( $user_id ){
     
     if( is_array($config) && !empty($config) ){
         $link = conect_to_db($config);
-        $query = "SELECT * FROM tables WHERE id_user=". $user_id ." ORDER BY date_start DESC";
+        $query = "SELECT * FROM tasks WHERE id_user=". $user_id ." ORDER BY date_start DESC";
         $result = mysqli_query($link, $query);
         $tasks = 0;
         echo "<table class='home-tasks'>";
@@ -166,7 +166,7 @@ function show_tasks( $user_id ){
     
     if( is_array($config) && !empty($config) ){
         $link = conect_to_db($config);
-        $query = "SELECT * FROM tables WHERE id_user=". $user_id ." ORDER BY date_start DESC";
+        $query = "SELECT * FROM tasks WHERE id_user=". $user_id ." ORDER BY date_start DESC";
         $result = mysqli_query($link, $query);
         $tasks = 0;
         echo "<table class='home-tasks'>";

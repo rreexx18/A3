@@ -1,6 +1,6 @@
 {
-    "host": "172.17.0.2",
-    "user": "root",
-    "password": "linuxlinux",
-    "database": "TodoTask"
+    "host": "localhost",
+    "user": "ggarcia_root",
+    "password": "alumnes",
+    "database": "ggarcia_TodoTask"
 }
