@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    width: 100%;
+}
+header{
+    padding: 15px;
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+section{
+    padding: 10px 40px;
+    margin-bottom: 50px;
+}
+footer{
+    position:fixed;
+    bottom:0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 5px 20px;
+    background-color: lightgrey;
+}
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+input[type="text"], input[type="password"]{
+    margin-bottom: 10px;
+    width: 100%;
+}
+label:hover{
+    cursor: pointer;
+}
+.login{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.login-register{
+    padding: 5px 85px;
+}
+.title{
+    text-align: center;
+}
+.home-form{
+    flex-direction: row;
+}
+input[type="submit"]{
+    margin: 5px;
+}
+.error{
+    color:red;
+    text-align: center;
+}
+.success{
+    color: green;
+    text-align: center;
+}
+.home-tasks{
+    border: 2px solid black;
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+.home-tasks td{
+    border: 1px solid black;
+    padding: 5px;
+}
+.not-found{
+    border-right: 2px solid black; 
+    border-left: 2px solid black; 
+    border-bottom: 1px solid black;
+    margin-bottom: 0;
+}
+.all-tasks-form{
+    flex-direction: row;
+    justify-content: space-between;
+}
+.single-task{
+    flex-direction: row;
+}
+.single-task input{
+    width: 30px;
+}
+#complet-task:before {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+#complet-task:before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f007";
+}
+.create-task-form{
+    flex-direction: row;
+}
+.create-task-form table{
+    width: 100%;
+    border: 2px solid black;
+    border-top: 0;
+}
+.create-task-form table td{
+    border: 1px solid black;
+    border-top: 0px;
+    padding: 5px;
+}
+.create-task-form table td:last-child{
+    text-align: center;
+}
+.create-task-form table td:last-child input{
+    text-align: center;
+    
+}
+.create-task-form table input{
+    margin-bottom: 0px;
+}
+.create-task-form table input[type=text]{
+    border: 0px;
+}
+.create-task-form table input[type=text-area]{
+    border: 0px;
+}
+table td:nth-child(1){
+    width: 65px;
+    text-align: center;
+}
+table td:nth-child(2){
+    width: 180px;
+}
+table td:nth-child(4){
+    width: 100px;
+}
+table td:nth-child(5){
+    width: 100px;
+}
+table td:nth-child(6){
+    width: 100px;
+}
+table td:nth-child(7){
+    width: 150px;
+}
+input[name="task-description"]{
+    width: 100%;
+    margin-top: -10px;
+}
