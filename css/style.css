@@ -89,17 +89,24 @@ input[type="submit"]{
 .single-task input{
     width: 30px;
 }
-#complet-task:before {
-    display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
+#complet-task{
+    background-image: url('../images/check-solid.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    height: 30px;
 }
-#complet-task:before {
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  content: "\f007";
+#delete-task{
+    background-image: url('../images/trash-alt-solid.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    height: 30px;
+    padding: 5px;
 }
 .create-task-form{
     flex-direction: row;
