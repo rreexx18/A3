@@ -36,7 +36,6 @@ function register_user(){
         mysqli_stmt_bind_param( $stmt, 'sss', $_POST['rname'], $_POST['rpasswd'], $_POST['remail'] );
         mysqli_execute($stmt);
         mysqli_stmt_close($stmt);
-        mysqli_close($link);
 
         return true;
     }
@@ -202,7 +201,7 @@ function show_tasks( $user_id ){
                 // https://fontawesome.com/how-to-use/on-the-web/advanced/css-pseudo-elements
                 echo "<td>";
                     echo "<form class='single-task' action='". $_SERVER['PHP_SELF'] ."' method='POST'>";
-                        echo "<input type='hidden' name='task-id' value='". $row['id_table'] ."'>";
+                        echo "<input type='hidden' name='task-id' value='". $row['id_task'] ."'>";
                         echo "<input type='submit' name='complet-task' id='complet-task' title='Completar tarea' value=''>";
                         echo "<input type='submit' name='delete-task' id='delete-task' title='Borrar tarea' value=''>";
                     echo "</form>";

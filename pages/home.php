@@ -1,8 +1,6 @@
 <?php    
     include '../lib/header.php';
     include '../connection/helper.php';
-
-    var_dump($_COOKIE);
     
     if( isset($_POST['logout']) ){
         setcookie('user_id', "", time()-60, "/");

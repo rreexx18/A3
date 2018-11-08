@@ -10,6 +10,18 @@
         header("Location: pages/home.php");
     }
     
+    if( !empty($_POST['rname']) && !empty($_POST['remail']) && !empty($_POST['rpasswd']) ){
+        $register = register_user();
+        if( $register ){
+            header('Location: index.php');
+        }else{
+            $error = 2;
+        }
+        
+    }else{
+        $error = 1;
+    }
+    
     if( !empty($_POST["name"]) && !empty($_POST["passwd"]) && isset($_POST['login']) ){
         $login = validar_usuario();
         if( is_numeric ( $login ) ){

@@ -2,8 +2,6 @@
 
     include '../lib/header.php';
     include '../connection/helper.php';
-
-    var_dump($_COOKIE);
     
     if( isset($_POST['logout']) ){
         setcookie('user_id', "", time()-60, "/");
@@ -84,9 +82,9 @@
                         <td>#</td>
                         <td><input type="text" name="task-name" placeholder="Nombre de la nueva tarea"></td>
                         <td><input type="text-area" name="task-description" placeholder="Descripción de la nueva tarea"></td>
-                        <td><input type="text" name="task-status" value="pendiente"></td>
-                        <td><input type="text" name="task-date-start" value="yyyy/mm/dd"></td>
-                        <td><input type="text" name="task-date-end" value="---"></td>
+                        <td><input type="text" name="task-status" value="pendiente" disabled></td>
+                        <td><input type="text" name="task-date-start" value="yyyy/mm/dd" disabled></td>
+                        <td><input type="text" name="task-date-end" value="---" disabled></td>
                         <td><input type="submit" name="create-task" value="Crear Tarea"></td>
                     </tr>
                 </table>

@@ -1,0 +1,96 @@
+-- phpMyAdmin SQL Dump
+-- version 4.6.6deb4
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: localhost:3306
+-- Tiempo de generación: 07-11-2018 a las 20:59:51
+-- Versión del servidor: 10.1.26-MariaDB-0+deb9u1
+-- Versión de PHP: 7.2.9-1+0~20180910100512.5+stretch~1.gbpdaac35
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `ggarcia_TodoTask`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tasks`
+--
+
+CREATE TABLE tasks (
+  id_task int(11) NOT NULL,
+  name varchar(90) DEFAULT NULL,
+  description varchar(255) DEFAULT NULL,
+  status varchar(60) DEFAULT NULL,
+  date_start date DEFAULT NULL,
+  date_finish date DEFAULT NULL,
+  id_user int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+CREATE TABLE users (
+  id_user int(11) NOT NULL,
+  name varchar(60) DEFAULT NULL,
+  passwd varchar(60) DEFAULT NULL,
+  email varchar(90) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `tasks`
+--
+ALTER TABLE tasks
+  ADD PRIMARY KEY (id_task),
+  ADD KEY id_user (id_user);
+
+--
+-- Indices de la tabla `users`
+--
+ALTER TABLE users
+  ADD PRIMARY KEY (id_user);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `tasks`
+--
+ALTER TABLE tasks
+  MODIFY id_task int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `users`
+--
+ALTER TABLE users
+  MODIFY id_user int(11) NOT NULL AUTO_INCREMENT;
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `tasks`
+--
+ALTER TABLE tasks
+  ADD CONSTRAINT tasks_ibfk_1 FOREIGN KEY (id_user) REFERENCES users (id_user);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
